@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self'">
+    <title>Legal Resources Directory</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="logo">
+                <h1>Legal Resources</h1>
+                <p>Find Help & Support</p>
+            </div>
+            
+            <nav class="categories">
+                <h3>Categories</h3>
+                <ul id="categoryList">
+                    <li data-category="all" class="active">All Resources</li>
+                    <li data-category="free-legal-aid">Free Legal Aid</li>
+                    <li data-category="online-services">Online Services</li>
+                    <li data-category="bar-associations">Bar Associations</li>
+                    <li data-category="pro-bono">Pro Bono Services</li>
+                    <li data-category="legal-research">Legal Research</li>
+                    <li data-category="emergency">Emergency Help</li>
+                </ul>
+            </nav>
+
+            <div class="filters">
+                <h3>Filters</h3>
+                <div class="filter-group">
+                    <label>Cost:</label>
+                    <select id="costFilter">
+                        <option value="all">All</option>
+                        <option value="free">Free</option>
+                        <option value="low-cost">Low Cost</option>
+                        <option value="paid">Paid Services</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label>Service Type:</label>
+                    <select id="serviceFilter">
+                        <option value="all">All Types</option>
+                        <option value="consultation">Consultation</option>
+                        <option value="representation">Representation</option>
+                        <option value="documents">Documents</option>
+                        <option value="information">Information</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="theme-toggle">
+                <button id="themeToggle">🌙 Dark Mode</button>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="app-header">
+                <div class="search-container">
+                    <input type="text" id="searchInput" placeholder="Search legal resources...">
+                    <button id="searchBtn">Search</button>
+                </div>
+                
+                <div class="view-controls">
+                    <button id="gridView" class="active">Grid</button>
+                    <button id="listView">List</button>
+                </div>
+            </header>
+
+            <div class="content-area">
+                <div class="results-info">
+                    <span id="resultsCount">Showing all resources</span>
+                </div>
+
+                <div id="resourcesContainer" class="resources-grid">
+                    <!-- Resources will be dynamically loaded here -->
+                </div>
+
+                <div id="noResults" class="no-results" style="display: none;">
+                    <h2>No resources found</h2>
+                    <p>Try adjusting your search or filters</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="renderer.js"></script>
+</body>
+</html>

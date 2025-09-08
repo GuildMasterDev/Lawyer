@@ -1,0 +1,25 @@
+{
+  "name": "legal-resources-directory",
+  "version": "1.0.0",
+  "description": "Electron app for legal resources directory - find lawyers and legal help",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GuildMasterDev/Lawyer.git"
+  },
+  "keywords": ["legal", "lawyer", "resources", "directory", "electron"],
+  "author": "GuildMaster Development",
+  "license": "MIT",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/GuildMasterDev/Lawyer/issues"
+  },
+  "homepage": "https://github.com/GuildMasterDev/Lawyer#readme",
+  "devDependencies": {
+    "electron": "^38.0.0"
+  }
+}
