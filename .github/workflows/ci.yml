@@ -1,0 +1,45 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm install --no-audit --no-fund
+
+      - name: Syntax-check JS files
+        run: |
+          set -e
+          files=$(find . -name '*.js' -not -path './node_modules/*' -not -path './dist/*' -not -path './.git/*')
+          if [ -z "$files" ]; then
+            echo "No JS files to check"
+            exit 0
+          fi
+          echo "Checking:"
+          echo "$files"
+          for f in $files; do
+            node --check "$f"
+          done
+
+      - name: Validate JSON files
+        run: |
+          set -e
+          files=$(find . -name '*.json' -not -path './node_modules/*' -not -path './dist/*' -not -path './package-lock.json')
+          for f in $files; do
+            node -e "JSON.parse(require('fs').readFileSync('$f','utf8'))"
+          done
