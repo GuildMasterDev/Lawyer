@@ -1,6 +1,6 @@
 {
   "name": "legal-resources-directory",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Electron app for legal resources directory - find lawyers and legal help",
   "main": "main.js",
   "scripts": {
